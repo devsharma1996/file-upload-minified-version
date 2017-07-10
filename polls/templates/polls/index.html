@@ -1,0 +1,62 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>File Upload System</title>
+    <link rel="stylesheet" href="{% static 'polls/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'polls/css/styles.css' %}">
+  </head>
+<body>
+
+   <div class="container">
+    <h1 id="h">File Upload</h1>
+    <br>
+    <!-- The file upload form used as target for the file upload widget -->
+    <form id="fileupload" method="post" action="." enctype="multipart/form-data">        
+        <div class="row">
+            
+            <input type="file" id="browse" multiple>
+            <div class="col-lg-7">
+                <button type="button" class="btn start" id="fileupload-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add  Files....</span>
+                </button>
+                <button type="button" class="btn start" id="usb-button">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>USB upload</span>
+                </button>
+                <button type="button" id="filedelete-button" class="btn btn-danger delete">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>Delete</span>
+                </button>
+                <!--<input type="checkbox" class="toggle">-->
+                <!-- The loading indicator is shown during file processing -->
+                <!--<span class="fileupload-loading"></span>-->
+            </div>
+            <!-- The table listing the files available for upload/download -->
+        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+            <!-- The global progress information -->
+            <div class="col-lg-5 fileupload-progress fade">
+                <!-- The global progress bar -->
+                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                </div>
+                <!-- The extended global progress information -->
+                <div class="progress-extended">&nbsp;</div>
+            </div>
+        </div>
+        <!-- The table listing the files available for upload/download -->
+        <table role="presentation" id="list-of-files" class="table"><!--<tbody class="list-of-files"></tbody>--></table>
+    </form>
+    <br>
+    
+</div>
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="{% static 'polls/js/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'polls/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'polls/js/script.js' %}"></script>
+</body>
+</html>
